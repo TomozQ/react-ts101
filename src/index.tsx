@@ -4,6 +4,8 @@ import './index.css';
 // import App from './App';
 import Hello from './components/Hello';
 import Name from './components/Name';
+import Message from './components/Message';
+import Parent from './components/ContainerSample';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -13,6 +15,8 @@ root.render(
   <React.StrictMode>  {/* 不適切なコードを検知するためのヘルパー */}
     <Hello />
     <Name />
+    <Message />
+    <Parent />
   </React.StrictMode>
 );
 
