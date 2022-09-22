@@ -5,10 +5,14 @@ const Hello = () => {
     alert('hello')
   }
   const text = 'Hello React'
+  const name = 'React'
   return (
-    <div onClick={onClick}>
-      {text}
-    </div>
+    <span onClick={onClick}>
+      {/* {text} */}
+      Hello React! {/* タグ内に直接文字を書ける */}
+      <br/>
+      こんにちは、{name} さん {/* JavaScriptの埋め込み */}
+    </span>
   )
 }
 
