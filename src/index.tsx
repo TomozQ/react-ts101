@@ -8,6 +8,7 @@ import Message from './components/Message';
 import Parent from './components/ContainerSample';
 import Page from './components/ContextSample';
 import Count from './components/Count';
+import Counter from './components/Counter';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -17,11 +18,21 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>  {/* 不適切なコードを検知するためのヘルパー */}
     <Hello />
+    <hr />
     <Name />
+    <hr />
     <Message />
+    <hr />
     <Parent />
+    <hr />
     <Page />
-    <Count initialValue={0}/>
+    <hr />
+    <h1>useState</h1>
+    <Count initialValue={0} />
+    <hr />
+    <h1>useReducer</h1>
+    <Counter initialValue={0}/>
+    <hr />
   </React.StrictMode>
 );
 
