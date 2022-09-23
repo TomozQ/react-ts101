@@ -1,7 +1,12 @@
 import React from 'react'
 
+type ContainerProps = {
+  title: string
+  children: React.ReactNode
+}
+
 // Containerは赤背景のボックスの中にタイトルと子要素を表示する
-const Container = (props: {title: string; children: React.ReactElement}) => {
+const Container = (props: ContainerProps): JSX.Element => {
   const { title, children } = props
 
   return (
@@ -15,6 +20,7 @@ const Container = (props: {title: string; children: React.ReactElement}) => {
 
 const Parent = () => {
   return (
+    // <Container> // titleがないのでerror → 型注釈を使用することで、コンポーネントに必要なpropsが渡されているかを静的に検査できる。
     <Container title='hello'>
       <p>ここの部分の背景色が変わります。</p>
     </Container>
