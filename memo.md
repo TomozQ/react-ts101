@@ -55,3 +55,5 @@ const [現在の状態, dispatch] = useReducer(reducer, reducerに渡される�
 * 現在の状態とactionを渡して次の状態を返すreducerという関数を用いる。
 * `useReducer()`の戻り値の配列の1番目は現在の状態で、2番目がdispatch関数
 * dispatch関数にactionを渡すことで状態を更新する。
+* useStateのsetStateと比べ、状態の更新を呼び出す方は、具体的な状態に依存していないためコードをシンプルに保つことができる。
+* 状態を更新するロジックをコンポーネント外の関数に切り出しているため、テストが容易になる。
