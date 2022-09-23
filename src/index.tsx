@@ -7,6 +7,7 @@ import Name from './components/Name';
 import Message from './components/Message';
 import Parent from './components/ContainerSample';
 import Page from './components/ContextSample';
+import Count from './components/Count';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -20,6 +21,7 @@ root.render(
     <Message />
     <Parent />
     <Page />
+    <Count initialValue={0}/>
   </React.StrictMode>
 );
 
