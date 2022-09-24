@@ -12,6 +12,7 @@ import Counter from './components/Counter';
 import { Parent1 } from './components/Parent';
 import { CallbackParent } from './components/CallbackParent';
 import { UseMemoSample } from './components/useMemoSample';
+import { Clock } from './components/Clock';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -45,6 +46,9 @@ root.render(
     <hr />
     <h1>useMemo</h1>
     <UseMemoSample />
+    <hr />
+    <h1>useEffect</h1>
+    <Clock />
   </>
   // </React.StrictMode>
 );
