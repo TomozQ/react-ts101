@@ -11,6 +11,7 @@ import Count from './components/Count';
 import Counter from './components/Counter';
 import { Parent1 } from './components/Parent';
 import { CallbackParent } from './components/CallbackParent';
+import { UseMemoSample } from './components/useMemoSample';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -42,6 +43,8 @@ root.render(
     <h1>useCallback</h1>
     <CallbackParent />
     <hr />
+    <h1>useMemo</h1>
+    <UseMemoSample />
   </>
   // </React.StrictMode>
 );
