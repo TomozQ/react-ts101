@@ -121,3 +121,34 @@ useEffectと同じように副作用を実行するためのフックだが、�
 * useEffect → 描画関数が実行し、DOMが更新され、画面に描画された後で実行
 * useLayoutEffect → DOMが更新された後、画面に実際に描画される前に実行される。
 * useLayoutEffectで実行する処理は同期的に実行されるため、重い処理を実行すると画面への描画が遅れるので注意する必要がある。
+
+<br>
+<br>
+
+<hr>
+
+#### React18におけるuseEffect・useLayoutEffectの挙動
+
+```<React.StrictMode>```以下のコンポーネント内で宣言されたuseEffect, useLayoutEffectは安全でない副作用を見つけるためにコンポーネントは2回描画される。
+そのため、空配列を渡した場合において、マウント時にuseEffectやuseLayoutEffectが2回呼ばれる。また、クリーンアップ関数も1回呼ばれることになる。1回のみの実行を保証したい場合は、useRefなどを使って前に実行されたかどうかを保持することで対処できる。
+なお本番環境や<React.StrictMode>で囲まれていないコンポーネントに関しては、この挙動は発生しない。
+
+```javascript
+const mounted = React.useRef(false)
+
+useEffect(() => {
+  if(mounted.current){
+    // すでに実行済みの場合は何もしない
+    return
+  }
+  mounted.current = true
+
+  // 1回だけ実行したい副作用の実行
+  const data = fetch(...)
+},[])
+```
+<hr>
+
+<br>
+<br>
+
