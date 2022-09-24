@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useLayoutEffect, useState  } from "react";
 
 // タイマーが呼び出される周期を1秒
 const UPDATE_CYCLE = 1000
@@ -49,7 +49,14 @@ export const Clock = () => {
     そのためuseEffectの中でlocalstorageを使用する。
   */
   // Localstorageから値を読み込むための副作用
-  useEffect(() => {
+  // useEffect(() => {
+  useLayoutEffect(() => {
+  /*
+    この副作用はlocalstorageに保存されている値を読み込んでlocaleに保存する。
+    localeはuseStateで初期値が渡されているため、初期描画ではデフォルト値のUS表記で表示され、その直後でlocalstorageに保存されていた表記に変化する。
+    そのため、毎回リロードする度に一瞬だけUS表記で表示されてしまいチラついているように見える。
+    useLayoutEffectに書き換えることでこのチラつきがなくなる。
+  */
     const savedLocale = localStorage.getItem(KEY_LOCALE)
     if(savedLocale !== null){
       setLocale(getLocaleFromString(savedLocale))
