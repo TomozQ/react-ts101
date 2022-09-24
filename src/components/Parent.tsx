@@ -13,17 +13,22 @@ const Fizz = (props: FizzProps) => {
   return <span>{ isFizz ? 'Fizz' : ''}</span>
 }
 
+// type BuzzProps = {
+//   isBuzz: boolean
+// }
 type BuzzProps = {
   isBuzz: boolean
+  // propsにonClickを追加
+  onClick: () => void
 }
 
 // Buzzはメモ化した関数コンポーネント
 // isBuzzがtrueの場合はBuzzと表示し、それ以外は何も表示しない
 // 親コンポーネントが再描画されても、isBuzzが変化しない限りは再描画しない
 const Buzz = memo<BuzzProps> ((props) => {
-  const { isBuzz } = props
+  const { isBuzz, onClick } = props
   console.log(`Buzzが再描画されました, isBuzz=${isBuzz}`)
-  return <span>{isBuzz ? 'Buzz' : ''}</span>
+  return <span onClick={ onClick }>{isBuzz ? 'Buzz' : ''}</span>
 })
 
 // この形式でexportした時はimport { Parent1 } from ... で読み込む
@@ -32,14 +37,20 @@ export const Parent1 = () => {
   const isFizz = count % 3 === 0
   const isBuzz = count % 5 === 0
 
+  // Parent1の再描画の度に新しくこの関数が作成され、その都度Buzzに渡してしまうのでBuzzで再描画が発生してしまう。
+  const onBuzzClick = () => {
+    console.log(`Buzzがクリックされました isBuzz = ${isBuzz}`)
+  }
+
   console.log(`Parentが再描画されました, count = ${count}`)
+
   return (
     <div>
       <button onClick={() => setCount((c) => c+1)}>+1</button>
       <p>{`現在のカウント: ${count}`}</p>
       <p>
         <Fizz isFizz={ isFizz } />
-        <Buzz isBuzz={ isBuzz }/>
+        <Buzz isBuzz={ isBuzz } onClick={ onBuzzClick }/>
       </p>
     </div>
   )
