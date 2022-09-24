@@ -9,6 +9,7 @@ import Parent from './components/ContainerSample';
 import Page from './components/ContextSample';
 import Count from './components/Count';
 import Counter from './components/Counter';
+import { Parent1 } from './components/Parent';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -16,7 +17,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>  {/* 不適切なコードを検知するためのヘルパー */}
+  // <React.StrictMode>  {/* 不適切なコードを検知するためのヘルパー */}
+  <>
     <Hello />
     <hr />
     <Name />
@@ -33,7 +35,10 @@ root.render(
     <h1>useReducer</h1>
     <Counter initialValue={0}/>
     <hr />
-  </React.StrictMode>
+    <h1>useMemo/useCallback</h1>
+    <Parent1 />
+  </>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
