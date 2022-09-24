@@ -10,6 +10,7 @@ import Page from './components/ContextSample';
 import Count from './components/Count';
 import Counter from './components/Counter';
 import { Parent1 } from './components/Parent';
+import { CallbackParent } from './components/CallbackParent';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -35,8 +36,12 @@ root.render(
     <h1>useReducer</h1>
     <Counter initialValue={0}/>
     <hr />
-    <h1>useMemo/useCallback</h1>
+    <h1>memoizing</h1>
     <Parent1 />
+    <hr />
+    <h1>useCallback</h1>
+    <CallbackParent />
+    <hr />
   </>
   // </React.StrictMode>
 );
