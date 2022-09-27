@@ -15,6 +15,7 @@ import { UseMemoSample } from './components/useMemoSample';
 import { Clock } from './components/Clock';
 import ContextParent from './components/Context';
 import ImageUploader from './components/UseRef';
+import ImperativeHandleParent from './components/ImperativeHandleParent';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -57,6 +58,9 @@ root.render(
     <hr />
     <h1>useRef</h1>
     <ImageUploader />
+    <hr />
+    <h1>useImperativeHandle</h1>
+    <ImperativeHandleParent />
   </>
   // </React.StrictMode>
 );
