@@ -16,6 +16,7 @@ import { Clock } from './components/Clock';
 import ContextParent from './components/Context';
 import ImageUploader from './components/UseRef';
 import ImperativeHandleParent from './components/ImperativeHandleParent';
+import { Input } from './components/Custom';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -61,6 +62,9 @@ root.render(
     <hr />
     <h1>useImperativeHandle</h1>
     <ImperativeHandleParent />
+    <hr />
+    <h1>Custom Hook</h1>
+    <Input />
   </>
   // </React.StrictMode>
 );
