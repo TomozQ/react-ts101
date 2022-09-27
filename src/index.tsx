@@ -14,6 +14,7 @@ import { CallbackParent } from './components/CallbackParent';
 import { UseMemoSample } from './components/useMemoSample';
 import { Clock } from './components/Clock';
 import ContextParent from './components/Context';
+import ImageUploader from './components/UseRef';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -53,6 +54,9 @@ root.render(
     <hr />
     <h1>useContext</h1>
     <ContextParent />
+    <hr />
+    <h1>useRef</h1>
+    <ImageUploader />
   </>
   // </React.StrictMode>
 );
